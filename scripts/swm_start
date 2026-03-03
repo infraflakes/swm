@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+xset r rate 200 50 &
+export XDG_SESSION_TYPE=x11
+export XDG_CURRENT_DESKTOP=swm
+export XDG_SESSION_DESKTOP=swm
+swm_bar &
+# Initialize the lockfile
+touch /tmp/swm.lock
+# As long as the lockfile exists, swm will respawn when it exits/is killed
+while [ -f /tmp/swm.lock ] && type swm >/dev/null; do 
+    swm 2>/dev/null
+done
+# 3. Cleanup
+# If the loop breaks clean up potential remnant before exiting the X session.
+rm -f /tmp/swm.lock
