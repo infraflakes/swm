@@ -6,22 +6,34 @@
 
 /* appearance */
 static const unsigned int borderpx = 0; /* border pixel of windows */
-static const unsigned int default_border = 0; /* to switch back to default border after dynamic border resizing via keybinds */
+static const unsigned int default_border =
+    0; /* to switch back to default border after dynamic border resizing via
+          keybinds */
 static const unsigned int snap = 32;     /* snap pixel */
 static const unsigned int gap_value = 0; /* horiz inner gap between windows */
-static const unsigned int gappih = gap_value; /* horiz inner gap between windows */
-static const unsigned int gappiv = gap_value; /* vert inner gap between windows */
-static const unsigned int gappoh = gap_value; /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov = gap_value; /* vert outer gap between windows and screen edge */
-static const int smartgaps = 0; /* 1 means no outer gap when there is only one window */
-static const unsigned int systraypinning = 0; /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
+static const unsigned int gappih =
+    gap_value; /* horiz inner gap between windows */
+static const unsigned int gappiv =
+    gap_value; /* vert inner gap between windows */
+static const unsigned int gappoh =
+    gap_value; /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov =
+    gap_value; /* vert outer gap between windows and screen edge */
+static const int smartgaps =
+    0; /* 1 means no outer gap when there is only one window */
+static const unsigned int systraypinning =
+    0; /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor
+          X */
 static const unsigned int systrayspacing = 2; /* systray spacing */
-static const int systraypinningfailfirst = 1; /* 1: if pinning fails,display systray on the 1st monitor,False: display systray on last monitor*/
+static const int systraypinningfailfirst =
+    1; /* 1: if pinning fails,display systray on the 1st monitor,False: display
+          systray on last monitor*/
 static const int showsystray = 1; /* 0 means no systray */
 static const int showbar = 1;     /* 0 means no bar */
 static const int showtab = showtab_auto;
 static const int toptab = 1;   /* 0 means bottom tab */
-static const int floatbar = 1; /* 1 means the bar will float(don't have padding),0 means the bar have padding */
+static const int floatbar = 1; /* 1 means the bar will float(don't have
+                                  padding),0 means the bar have padding */
 static const int topbar = 1;   /* 0 means bottom bar */
 static const int horizpadbar = 10;
 static const int vertpadbar = 15;
@@ -30,16 +42,19 @@ static const int horizpadtabi = 15;
 static const int horizpadtabo = 15;
 static const int scalepreview = 4;
 static const int tag_preview = 0; /* 1 means enable, 0 is off */
-static const int colorfultag = 1; /* 0 means use SchemeSel for selected non vacant tag */
+static const int colorfultag =
+    1; /* 0 means use SchemeSel for selected non vacant tag */
 
-static const char *volup[]      = { "swmctl", "volume",     "up",   "2",   NULL };
-static const char *voldown[]    = { "swmctl", "volume",     "down", "2", NULL };
-static const char *volmute[]    = { "swmctl", "volume",     "mute",               NULL };
-static const char *brightup[]   = { "swmctl", "brightness", "up",   "5",   NULL };
-static const char *brightdown[] = { "swmctl", "brightness", "down", "5",   NULL };
+static const char* volup[] = {"swmctl", "volume", "up", "2", NULL};
+static const char* voldown[] = {"swmctl", "volume", "down", "2", NULL};
+static const char* volmute[] = {"swmctl", "volume", "mute", NULL};
+static const char* brightup[] = {"swmctl", "brightness", "up", "5", NULL};
+static const char* brightdown[] = {"swmctl", "brightness", "down", "5", NULL};
 
 static const char* quit_swm[] = {"swmctl", "quit", NULL};
-static const int new_window_attach_on_end = 1; /*  1 means the new window will attach on the end; 0 means the new window will attach on the front,default is front */
+static const int new_window_attach_on_end =
+    1; /*  1 means the new window will attach on the end; 0 means the new window
+          will attach on the front,default is front */
 #define ICONSIZE 20   /* icon size */
 #define ICONSPACING 8 /* space between icon and title */
 
@@ -69,12 +84,14 @@ static const int tagschemes[] = {SchemeTag1, SchemeTag2, SchemeTag3,
                                  SchemeTag2, SchemeTag1, SchemeTag2,
                                  SchemeTag3, SchemeTag1, SchemeTag2};
 
-static const char* rofi[] = {"rofi", "-show", "drun", NULL};
-
-static const unsigned int ulinepad = 5; /* horizontal padding between the underline and tag */
-static const unsigned int ulinestroke = 2; /* thickness / height of the underline */
-static const unsigned int ulinevoffset = 0; /* how far above the bottom of the bar the line should appear */
-static const int ulineall = 0; /* 1 to show underline on all tags, 0 for just the active ones */
+static const unsigned int ulinepad =
+    5; /* horizontal padding between the underline and tag */
+static const unsigned int ulinestroke =
+    2; /* thickness / height of the underline */
+static const unsigned int ulinevoffset =
+    0; /* how far above the bottom of the bar the line should appear */
+static const int ulineall =
+    0; /* 1 to show underline on all tags, 0 for just the active ones */
 
 static const Rule rules[] = {
     /* xprop(1):
@@ -83,25 +100,18 @@ static const Rule rules[] = {
      */
     /* class      instance    title       tags mask     iscentered   isfloating
        monitor */
-    {"copyq", NULL, NULL, 0, 0, 1, -1},
+    { "Toolkit",  NULL,       "Picture-in-Picture",   0,         1,          -1 },
+    { "firefox",  NULL,       "Picture-in-Picture",   0,         1,          -1 },
+    { "Chromium", NULL,       "Picture-in-Picture",   0,         1,          -1 },
 };
 
 /* layout(s) */
-static const float mfact = 0.50; /* factor of master area size [0.05..0.95] */
-static const int nmaster = 1;    /* number of clients in master area */
 static const int resizehints =
     0; /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen =
     1; /* 1 will force focus on the fullscreen window */
 
-#define FORCE_VSPLIT \
-  1 /* nrowgrid layout: force two clients to always split vertically */
 #include "functions.h"
-
-static const Layout layouts[] = {
-    /* symbol     arrange function */
-    {"IRIS", monocle},
-};
 
 /* function declarations */
 static void tagtonext(const Arg* arg);
@@ -139,14 +149,8 @@ static const Key keys[] = {
     {0, XF86XK_MonBrightnessDown, spawn, {.v = brightdown}},
 
     // screenshot fullscreen and cropped
-    {MODKEY | ALTKEY, XK_s, spawn,
-     SHCMD("maim | tee ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png | "
-           "xclip -selection clipboard -t image/png")},
-    {MODKEY | ShiftMask, XK_s, spawn,
-     SHCMD(
-         "maim --select | tee ~/Pictures/Screenshots/$(date "
-         "+%Y-%m-%d_%H-%M-%S).png | xclip -selection clipboard -t image/png")},
-
+    {MODKEY | ALTKEY, XK_s, spawn, SHCMD("flameshot full")},
+    {MODKEY | ShiftMask, XK_s, spawn, SHCMD("flameshot gui")},
     {MODKEY, XK_space, spawn, SHCMD("rofi -show drun")},
     {MODKEY, XK_Return, spawn, SHCMD("alacritty")},
     {MODKEY, XK_l, spawn, SHCMD("slock")},
@@ -168,13 +172,10 @@ static const Key keys[] = {
 
     {MODKEY | ControlMask, XK_Left, tagtoprev, {0}},
     {MODKEY | ControlMask, XK_Right, tagtonext, {0}},
-    {MODKEY | ShiftMask, XK_Return, zoom, {0}},
     {MODKEY, XK_Tab, view, {0}},
 
-    // overall gaps
-    //{ MODKEY|ControlMask,               XK_i,       incrgaps,       {.i = +10
-    //} }, { MODKEY|ControlMask,               XK_d,       incrgaps,       {.i =
-    //-10 } },
+    // { MODKEY|ControlMask,               XK_i,       incrgaps,       {.i = +10 } },
+    // { MODKEY|ControlMask,               XK_d,       incrgaps,       {.i = -10 } },
 
     // kill window
     {MODKEY, XK_q, killclient, {0}},
@@ -184,32 +185,11 @@ static const Key keys[] = {
             TAGKEYS(XK_9, 8)};
 
 /* button definitions */
-/* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle,
- * ClkClientWin, or ClkRootWin */
 static const Button buttons[] = {
-    /* click event mask button function argument */
-    {ClkWinTitle, 0, Button2, zoom, {0}},
     {ClkStatusText, 0, Button2, spawn, SHCMD("ghostty")},
-
-    /* Keep movemouse? */
-    /* { ClkClientWin,         MODKEY,         Button1,        movemouse, {0} },
-     */
-
-    /* placemouse options, choose which feels more natural:
-     *    0 - tiled position is relative to mouse cursor
-     *    1 - tiled position is relative to window center
-     *    2 - mouse pointer warps to window center
-     *
-     * The moveorplace uses movemouse or placemouse depending on the floating
-     * state of the selected client. Set up individual keybindings for the two
-     * if you want to control these separately (i.e. to retain the feature to
-     * move a tiled window into a floating position).
-     */
     {ClkClientWin, MODKEY, Button1, moveorplace, {.i = 0}},
     {ClkClientWin, MODKEY, Button2, togglefloating, {0}},
     {ClkClientWin, MODKEY, Button3, resizemouse, {0}},
-    {ClkClientWin, ControlMask, Button1, dragmfact, {0}},
-    {ClkClientWin, ControlMask, Button3, dragcfact, {0}},
     {ClkTagBar, 0, Button1, view, {0}},
     {ClkTagBar, 0, Button3, toggleview, {0}},
     {ClkTagBar, MODKEY, Button1, tag, {0}},
