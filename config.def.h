@@ -71,7 +71,6 @@ static const char* colors[][3] = {
     [SchemeTag1] = {blue, black, black},
     [SchemeTag2] = {purple, black, black},
     [SchemeTag3] = {pink, black, black},
-    [SchemeLayout] = {blue, black, black},
     [SchemeBtnPrev] = {green, black, black},
     [SchemeBtnNext] = {yellow, black, black},
     [SchemeBtnClose] = {red, black, black},

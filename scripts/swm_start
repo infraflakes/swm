@@ -3,13 +3,16 @@ xset r rate 200 50 &
 export XDG_SESSION_TYPE=x11
 export XDG_CURRENT_DESKTOP=swm
 export XDG_SESSION_DESKTOP=swm
+unset SSH_ASKPASS
 swm_bar &
 # Initialize the lockfile
 touch /tmp/swm.lock
+# 2. The Hot-Reload Loop
 # As long as the lockfile exists, swm will respawn when it exits/is killed
 while [ -f /tmp/swm.lock ] && type swm >/dev/null; do 
     swm 2>/dev/null
 done
 # 3. Cleanup
-# If the loop breaks clean up potential remnant before exiting the X session.
+# If the loop breaks (because you ran 'swmctl quit' which deletes the file), 
+# we clean up any remnants before exiting the X session.
 rm -f /tmp/swm.lock
